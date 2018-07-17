@@ -4,6 +4,7 @@
   --main-bg-light: #f5f4ef;
   --dark-grey: #8E8D8A;
   --coral: #E98074;
+  --light-coral: #FCEBE9;
   --dark-coral: #E85A4F;
   --dark-beige: #D8C3A5;
   --main-text-color: #5B5A57;
@@ -20,10 +21,6 @@ body {
 
 /* mobile */
 
-/* nav */
-
-/* hamburger */
-
 #hamburger {
   display: block;
   position: fixed;
@@ -32,7 +29,6 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  outline-color: none;
 }
 
 .bar1,
@@ -54,7 +50,6 @@ body {
 }
 
 button#hamburger:focus {
-  outline-color: none;
 }
 
 .change .bar2 {
@@ -114,7 +109,6 @@ li {
   position: absolute;
   z-index: 99;
   margin-top: 1.05rem;
-  /* margin-bottom: 1rem; */
   top: 2rem;
   left: 0;
   width: 100vw;
@@ -125,7 +119,6 @@ nav li {
   border: 2px var(--dark-beige) solid;
   text-align: left;
   background-color: var(--dark-beige);
-  padding: .1rem;
   padding-left: 3rem;
 }
 
@@ -133,7 +126,6 @@ nav li:hover {
   background-color: var(--dark-beige);
   border-bottom: 2px var(--coral) solid;
   border-top: 2px var(--coral) solid;
-  padding: -.1rem;
 }
 
 nav a {
@@ -149,7 +141,6 @@ nav a:hover {
   position: relative;
   left: -5.6rem;
   width: 112.25%;
-  padding: -.1rem;
   background-color: var(--dark-beige);
 }
 
@@ -208,7 +199,6 @@ main {
 
 pre {
   display: block;
-  /* white-space: pre-wrap; */
   text-align-last: left;
   padding: 0;
   margin: 0;
@@ -253,24 +243,34 @@ header h3 {
   #hamburger {
     display: block;
     position: relative;
-    left: 0vw;
+    left: 0;
     top: 0.66rem;
     width: 1.1rem;
     height: 100vh;
+    background-color: var(--main-bg-light);
     border-left: 1px grey solid;
-    /* border-right: 1px grey solid; */
-    transition-property: left;
-    transition-duration: 400ms;
+    transition-property: background-color;
+    transition-duration:  600ms;
+    
+  }
+  #hamburger:hover {
+    background-color: var(--light-coral);
+    transition-property: background-color;
+    transition-duration: 600ms;
   }
   #hamburger.change {
     display: block;
     position: relative;
-    background-color: var(--main-bg-light);
-    left: 25vw;
+    left: 28vw;
     top: 0.66rem;
     height: 100vh;
-    transition-property: left;
-    transition-duration: 400ms;
+    transition-property: background-color;
+    transition-duration: 600ms;
+  }
+  #hamburger.change:hover {
+    background-color: var(--light-coral);
+    transition-property: background-color;
+    transition-duration: 600ms;
   }
   .bar1,
   .bar2,
@@ -296,13 +296,33 @@ header h3 {
     background-color: orange;
     -webkit-transform: rotate(-47deg);
     transform: rotate(-47deg);
-    outline-color: none;
   }
   .change .bar3 {
     background-color: orange;
     -webkit-transform: rotate(46deg);
     transform: rotate(46deg);
-    outline-color: none;
+  }
+ 
+  #topics li {
+    font-size: 1rem;
+    padding-right: .125rem;
+    padding-left: .25rem;
+    border: 2px var(--main-bg-light) solid;
+    background-color: var(--main-bg-light);
+  }
+  #topics li:hover {
+    border-bottom: 2px var(--coral) solid;
+  }
+  #sub li {
+    position: relative;
+    display: block;
+    left: -2.75rem;
+    padding-right: .125rem;
+  }
+  #sub a,
+  #ftn-nav {
+    position: relative;
+    left: 1rem;
   }
   #topics {
     display: block;
@@ -311,54 +331,38 @@ header h3 {
     margin: 0;
     transition-property: width;
     transition-duration: 400ms;
-    background-color: var(--main-bg-color);
   }
   #topics.nav-open {
     display: block;
     z-index: 99;
     margin-bottom: 1rem;
-    background-color: none;
+    background-color: transparent;
     top: 2rem;
     left: 0;
-    width: 25vw;
+    width: 28vw;
+    max-width: 19rem;
     height: 100vh;
     transition-property: width;
     transition-duration: 400ms;
   }
-  #topics li {
-    font-size: 1rem;
-    padding-right: .25rem;
-    padding-left: .25rem;
-    background-color: var(--main-bg-color);
-  }
-  #sub li {
-    position: relative;
-    display: block;
-    left: -2.75rem;
-    padding-right: .25rem;
-    padding-right: 0;
-  }
-  #sub a,
-  #ftn-nav {
-    position: relative;
-    left: 0rem;
-    width: 100%;
+  code{
+    font-size: 0.8rem;
   }
   main,
   code {
-    width: 90vw;
+    width: 88vw;
     z-index: -1;
     transition-property: width;
     transition-duration: 400ms;
   }
   main.change,
   code.change {
-    right: .5rem;
-    width: 70vw;
+    width: 68vw;
     float: right;
-    margin-right: .25rem;
-    transition-property: width float;
-    transition-duration: 400ms 400ms;
+    padding-right: .5rem;
+    margin-left: 0.5rem;
+    transition-property: width;
+    transition-duration: 400ms;
   }
 }
 
@@ -379,7 +383,7 @@ footer {
   padding-top: 3rem;
 }
 
-footer .change {
+footer.change {
   text-align: center;
   font-size: 1rem;
   bottom: 0;
